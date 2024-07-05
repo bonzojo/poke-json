@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pokedex</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
 </head>
 <body>
     
     <input type="text" id="pokemonName" placeholder="Enter Pokemon name">
-    <br>
-    <button onclick="pokeMon()">Pokemon!</button><br>
+    
     <div class="pokeContainer">
         <div class="pokeImg">
             <img src="" alt="Pokemon Sprite" id="pokemonSprite" style="display: none;">
+
+            <p id="pokeName"></p>
+            <p id="pokeHP"></p>
+            <p id="pokeType"></p>
+            <p id="pokeHeight"></p>
+            <p id="pokeWeight"></p>
+            <p id="pokeAbility"></p>
         </div>
     </div>
 
