@@ -8,14 +8,15 @@
     <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
 </head>
 <body>
-    
+    <p id="pokePrompt">Enter Pokemon Name...</p>
     <input type="text" id="pokemonName" placeholder="Enter Pokemon name">
     
     <div class="pokeContainer">
         <div class="pokeImg">
             <img src="" alt="Pokemon Sprite" id="pokemonSprite" style="display: none;">
-
-            <p id="pokeName"></p>
+        </div>
+        <p id="pokeName" style="display: none;"></p>
+        <div id="pokeDataDiv" style="display: none;">
             <p id="pokeHP"></p>
             <p id="pokeType"></p>
             <p id="pokeHeight"></p>
@@ -23,6 +24,8 @@
             <p id="pokeAbility"></p>
         </div>
     </div>
+
+
 
     <script src="index.js"></script>
 

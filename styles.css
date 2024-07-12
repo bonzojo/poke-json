@@ -1,45 +1,61 @@
 body {
     text-align: center;
-    background-color: cornflowerblue;
-    color: antiquewhite;
-    -webkit-text-stroke: 0.4px black;
+    margin: 0 auto;
+    padding: 0 auto;
+    border: solid 12px rgb(212, 212, 212);
+    background-color: rgb(175, 175, 175);
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke: 0.4px rgb(0, 0, 0);
     font-family: 'Pokemon Solid', sans-serif;
                                          
 }
 
-#pokemonName{
-    border: solid 2px red;
+#pokePrompt {
+    margin: 0 auto;
+    padding: 0 auto;
 }
 
 .pokeContainer {
-    width: 100%;
     display: flex;
-    margin: 0 auto;
-    padding: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px 25% 5%;
+    border: solid 12px rgb(209, 209, 209);
+    background-color: rgba(63, 130, 255, 0.3);
 }
 .pokeImg {
-    margin: 0 auto;
-    padding: 0 auto;
-    height: 150px;
+    margin-bottom: 5%;
+    height: 100px;
     width: 100%;
 }
 #pokemonSprite {
     margin: 0 auto;
-    height: 150%;
+    padding: 0 auto;
+    height: 200%;
+    width: auto;
 }
 
 #pokeName {
     font-size: 30px;
+    margin: 5px auto;
+    color: rgb(255, 255, 0);
 }
 
-p {
-    width: 25%;
+#pokeDataDiv {
+    margin: 10px auto;
+    margin-bottom: 10%;
+    width: 85%;
+}
+
+#pokeDataDiv p {
+    margin: 10px auto;
+    padding: 10px 5px;
+    width: 85%;
     font-size: 20px;
-    margin: 0 auto;
-    padding: 0 auto;
+    border: solid 1px rgb(255, 255, 255);
+    background-color: rgba(255, 41, 41, 0.8);
 }
 
-p:hover {
-    border: solid 1px black;
-    background-color: red;
+#pokeDataDiv p:hover {
+    border: solid 3px rgb(5, 144, 144);
 }
