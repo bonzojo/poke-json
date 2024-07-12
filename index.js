@@ -24,8 +24,12 @@ async function pokeMon(){
         imgElement.src = pokemonSprite;
         imgElement.style.display = "block";
 
+        //Toggle Display Data
+        document.getElementById('pokeDataDiv').style.display = "block";
+
         //Name
         var pokeName = pokemon.name;
+        document.getElementById('pokeName').style.display = "block";
         document.getElementById('pokeName').innerHTML = `${pokeName.charAt(0).toUpperCase() + pokeName.slice(1)}`;
         
         //Health
