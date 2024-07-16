@@ -28,9 +28,16 @@ async function pokeMon(){
         imgElement.src = pokemonSprite || '';
         imgElement.style.display = pokemonSprite ? "block" : "none";
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+        //Toggle Display Data
+        document.getElementById('pokeDataDiv').style.display = "block";
+
+>>>>>>> 9373f6c511655ea8a53e6b59a9a576c670653eb9
         //Name
         var pokeName = pokemon.name;
+        document.getElementById('pokeName').style.display = "block";
         document.getElementById('pokeName').innerHTML = `${pokeName.charAt(0).toUpperCase() + pokeName.slice(1)}`;
 =======
         // Toggle Display Data
