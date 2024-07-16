@@ -3,53 +3,74 @@ input.addEventListener('keypress', function(event){
    if(event.key === 'Enter') {
       pokeMon();
    }
-})
+});
 
 async function pokeMon(){
      try {
-        const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
+        const pokemonName = document.getElementById("pokemonName").value.trim().toLowerCase();
+        if (!pokemonName) {
+            alert('Please enter a Pokemon name');
+            return;
+        }
 
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
-        if(!response.ok) {
-         alert('Please enter a valid pokemon');
-            throw new Error("Could not fetch resource")
-            
+        if (!response.ok) {
+            alert('Please enter a existing Pokemon');
+            throw new Error("Could not fetch resource");
         }
+        
         const pokemon = await response.json();
         console.log(pokemon);
 
-        //Image
+        // Image
         const pokemonSprite = pokemon.sprites.front_default;
         const imgElement = document.getElementById("pokemonSprite");
-        imgElement.src = pokemonSprite;
-        imgElement.style.display = "block";
+        imgElement.src = pokemonSprite || '';
+        imgElement.style.display = pokemonSprite ? "block" : "none";
 
+<<<<<<< Updated upstream
         //Name
         var pokeName = pokemon.name;
         document.getElementById('pokeName').innerHTML = `${pokeName.charAt(0).toUpperCase() + pokeName.slice(1)}`;
-        
-        //Health
-        document.getElementById('pokeHP').innerHTML = `Base HP: ${pokemon.stats[0].base_stat}`;
+=======
+        // Toggle Display Data
+        document.getElementById('pokeDataDiv').style.display = "block";
 
-        //Type
-        var pokeType = pokemon.types[0].type.name;
+        // Name
+        var pokeName = pokemon.name || 'N/A';
+        document.getElementById('pokeName').style.display = "block";
+        document.getElementById('pokeName').innerHTML = sanitizeHTML(pokeName.charAt(0).toUpperCase() + pokeName.slice(1));
+>>>>>>> Stashed changes
+        
+        // Health
+        document.getElementById('pokeHP').innerHTML = `Base HP: ${pokemon.stats[0]?.base_stat || 'N/A'}`;
+
+        // Type
+        var pokeType = pokemon.types[0]?.type?.name || 'N/A';
         document.getElementById('pokeType').innerHTML = `Type: ${pokeType.charAt(0).toUpperCase() + pokeType.slice(1)}`;
 
-        //Height
-        var pokeHeight = pokemon.height / 10;
+        // Height
+        var pokeHeight = pokemon.height ? pokemon.height / 10 : 'N/A';
         document.getElementById('pokeHeight').innerHTML = `Height: ${pokeHeight} metres`;
 
-        //Weight
-        var pokeWeight = pokemon.weight / 10;
+        // Weight
+        var pokeWeight = pokemon.weight ? pokemon.weight / 10 : 'N/A';
         document.getElementById('pokeWeight').innerHTML = `Weight: ${pokeWeight} kg`;
 
-        //Abilities
-        var abilityOne = pokemon.abilities[0].ability.name;
-        var abilityTwo = pokemon.abilities[1].ability.name;
-        document.getElementById('pokeAbility').innerHTML = `Abilities: ${abilityOne.charAt(0).toUpperCase() + abilityOne.slice(1)}, ${abilityTwo.charAt(0).toUpperCase() + abilityTwo.slice(1)}`;
+        // Abilities
+        var abilityOne = pokemon.abilities[0]?.ability?.name || 'N/A';
+        var abilityTwo = pokemon.abilities[1]?.ability?.name || 'N/A';
+        document.getElementById('pokeAbility').innerHTML = `Abilities: ${sanitizeHTML(abilityOne.charAt(0).toUpperCase() + abilityOne.slice(1))}, ${sanitizeHTML(abilityTwo.charAt(0).toUpperCase() + abilityTwo.slice(1))}`;
 
+     } catch(error) {
+        console.error('Error:', error);
+        alert('An error occurred while fetching the Pokemon data. Please enter a correctly named Pokemon.');
      }
-     catch(error){
-        console.log(error);
-     }
+}
+
+// Function to sanitize HTML to prevent XSS
+function sanitizeHTML(str) {
+    var temp = document.createElement('div');
+    temp.textContent = str;
+    return temp.innerHTML;
 }
