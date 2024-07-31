@@ -4,25 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
 </head>
 <body>
     <p id="pokePrompt">Enter Pokemon Name...</p>
+    <p id="pokePromptTwo">Press the Enter/Return key to fetch pokemon data</p>
     <input type="text" id="pokemonName" placeholder="Enter Pokemon name">
     
-    <div class="pokeContainer">
-        <div class="pokeImg">
+    <div class="pokeContainer"><!--Original Texture class-->
+        
+        <p id="pokeName" class="texture" style="display: none;"></p>
+        
+        <div class="pokeImg texture">
             <img src="" alt="Pokemon Sprite" id="pokemonSprite" style="display: none;">
         </div>
-        <p id="pokeName" style="display: none;"></p>
-        <div id="pokeDataDiv" style="display: none;">
-            <p id="pokeHP"></p>
-            <p id="pokeType"></p>
-            <p id="pokeHeight"></p>
-            <p id="pokeWeight"></p>
-            <p id="pokeAbility"></p>
+        
+        <div id="pokeDataDiv" style="display: none;" class="texture">
+            <div id="pokeHP" class="pokeInfo"></div>
+            <div id="pokeType" class="pokeInfo"></div>
+            <div id="pokeHeight" class="pokeInfo"></div>
+            <div id="pokeWeight" class="pokeInfo"></div>
+            <div id="pokeAbility" class="pokeInfo"></div>
         </div>
+        
     </div>
 
 
